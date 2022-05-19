@@ -40,7 +40,6 @@ h1,p {
     padding: 0.75rem 2rem;
 }
 `
-
 export const StyledTextField = styled(TextField)`
   width: 20.5rem;
   height: 3.5rem;
@@ -48,6 +47,8 @@ export const StyledTextField = styled(TextField)`
   padding: 1.188rem 3rem 1.188rem 1rem;
   border-radius: 2px;
 `
+
+
 
 export const StyledButton = styled.button`
   width: 20.5rem;

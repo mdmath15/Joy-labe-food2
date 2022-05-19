@@ -1,10 +1,11 @@
-import React from "react"
-import { Header } from "../../components/Header"
-import { Container, StyledTextField, StyledButton } from "./styled"
-import useForm from "../../hooks/useForm"
-import logo from "../../assets/images/logo-future-eats-red.png"
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Header } from "../../components/Header";
+import useForm from "../../hooks/useForm";
+import { signAddress } from "../../services/user";
+import { Container, StyledButton, StyledTextField } from "./styled";
 
-const AdressPage = () => {
+const AddressPage = () => {
   const { form, onChangeForm, clearFields } = useForm({
     street: "",
     number: "",
@@ -12,93 +13,103 @@ const AdressPage = () => {
     neighbourhood: "",
     city: "",
     state: "",
-  })
-
+  });
+const navigate= useNavigate()
+  const addAddress=(e)=>{
+    e.preventDefault();
+   signAddress(form,navigate,clearFields)
+  }
   return (
-    <div>
+    <>
       <Header />
       <Container>
-        <img src={logo} alt="logo red" />
-        <h1>Cadastrar</h1>
-        <form>
+        <h1>Meu Endereço</h1>
+        <form onSubmit={addAddress} method="PUT">
           <StyledTextField
             id="outlined-basic"
-            name="street"
+            type="text"
+            placeholder="Rua/Av"
+            required
+            autoComplete
             label="Logradouro"
-            placeholder="Rua / Av."
             variant="outlined"
+            name="street"
             value={form.street}
             onChange={onChangeForm}
-            type="text"
-            required
           />
+
           <StyledTextField
             id="outlined-basic"
-            name="number"
-            label="Número"
+            type="number"
             placeholder="Número"
+            required
+            autoComplete
+            label="Número"
             variant="outlined"
+            name="number"
             value={form.number}
             onChange={onChangeForm}
-            type="text"
-            required
           />
           <StyledTextField
             id="outlined-basic"
-            name="complement"
-            label="Complemento"
+            type="text"
             placeholder="Apto./Bloco"
+         
+            autoComplete
+            label="Complemento"
             variant="outlined"
+            name="complement"
             value={form.complement}
             onChange={onChangeForm}
-            type="text"
-            required
           />
           <StyledTextField
             id="outlined-basic"
-            name="neighbourhood"
-            label="Bairro"
+            type="text"
             placeholder="Bairro"
+            required
+            autoComplete
+            label="Bairro"
             variant="outlined"
+            name="neighbourhood"
             value={form.neighbourhood}
             onChange={onChangeForm}
-            type="text"
-            required
           />
           <StyledTextField
             id="outlined-basic"
-            name="city"
-            label="Cidade"
+            type="text"
             placeholder="Cidade"
+            required
+            autoComplete
+            label="Cidade"
             variant="outlined"
+            name="city"
             value={form.city}
             onChange={onChangeForm}
-            type="text"
-            required
           />
           <StyledTextField
             id="outlined-basic"
-            name="state"
-            label="Estado"
+            type="text"
             placeholder="Estado"
+            required
+            autoComplete
+            label="Estado"
             variant="outlined"
+            name="state"
             value={form.state}
             onChange={onChangeForm}
-            type="text"
-            required
           />
           <StyledButton
             textPrimary={"primary"}
             color={"primary"}
             fullWidth
             variant="contained"
+            type="submit"
           >
             Salvar
           </StyledButton>
         </form>
       </Container>
-    </div>
-  )
-}
-
-export default AdressPage
+    </>
+  );
+};
+export default AddressPage;

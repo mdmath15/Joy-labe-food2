@@ -7,7 +7,7 @@ import {
 
 export const Container = styled.div`
   width: 20.5rem;
-  height: 11.75rem;
+  height: auto;
   padding: 0 0 1rem;
   margin-top: 0.5rem;
   border-radius: 8px;
@@ -17,6 +17,8 @@ export const Container = styled.div`
     width: 20.5rem;
     height: 7.5rem;
     margin: 0 0 0.75rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     object-fit: fill;
   }
 

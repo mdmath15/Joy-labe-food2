@@ -15,7 +15,6 @@ export const ContainerHeader = styled.div`
   position: fixed;
   top: 0;
   font-family:  "Roboto";
-  
   p {
     align-self: center;
   }
@@ -23,5 +22,10 @@ export const ContainerHeader = styled.div`
   img {
     width: 36px;
     height: 36px;
+    object-fit: contain;
   }
 `;
+
+export const Div = styled.div`
+  padding: 0.35em;
+`
